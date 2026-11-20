@@ -1,0 +1,47 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/bughunter-core",
+    "crates/bughunter-providers",
+    "crates/bughunter-agents",
+    "crates/bughunter-mcp",
+    "crates/bughunter-a2a",
+    "crates/bughunter-api",
+    "crates/bughunter-plugins",
+    "crates/bughunter-sdk",
+    "crates/bughunter-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["BugHunter Contributors"]
+repository = "https://github.com/bughunter/bughunter"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+async-trait = "0.1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+futures = "0.3"
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls"] }
+axum = "0.8"
+tower = "0.5"
+clap = { version = "4", features = ["derive", "env"] }
+regex = "1"
+tokio-stream = "0.1"
+
+bughunter-core = { path = "crates/bughunter-core" }
+bughunter-providers = { path = "crates/bughunter-providers" }
+bughunter-agents = { path = "crates/bughunter-agents" }
+bughunter-mcp = { path = "crates/bughunter-mcp" }
+bughunter-a2a = { path = "crates/bughunter-a2a" }
+bughunter-api = { path = "crates/bughunter-api" }
+bughunter-plugins = { path = "crates/bughunter-plugins" }
+bughunter-sdk = { path = "crates/bughunter-sdk" }

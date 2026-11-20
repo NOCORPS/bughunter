@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "bughunter": {
+        "command": "bughunter",
+        "args": ["mcp", "--transport", "stdio"]
+      }
+    }
+  }
+}

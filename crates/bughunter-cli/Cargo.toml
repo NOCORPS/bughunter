@@ -1,0 +1,22 @@
+[package]
+name = "bughunter-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "bughunter"
+path = "src/main.rs"
+
+[dependencies]
+axum.workspace = true
+bughunter-a2a.workspace = true
+bughunter-agents.workspace = true
+bughunter-api.workspace = true
+bughunter-core.workspace = true
+bughunter-mcp.workspace = true
+bughunter-providers.workspace = true
+clap.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing-subscriber.workspace = true

@@ -1,0 +1,20 @@
+[package]
+name = "bughunter-api"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+axum.workspace = true
+bughunter-a2a.workspace = true
+bughunter-core.workspace = true
+bughunter-mcp.workspace = true
+bughunter-providers.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+bughunter-agents.workspace = true
+bughunter-sdk.workspace = true
+reqwest.workspace = true
+tokio.workspace = true

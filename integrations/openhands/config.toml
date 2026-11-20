@@ -1,0 +1,5 @@
+[mcp]
+[[mcp.stdio_servers]]
+name = "bughunter"
+command = "bughunter"
+args = ["mcp", "--transport", "stdio"]
