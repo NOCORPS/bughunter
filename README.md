@@ -46,45 +46,51 @@ flowchart LR
 
 ## Quick Start
 
-### Prerequisites
-
-- **Rust** (workspace tested on `rustc 1.99.1` / `cargo 1.99.1`)
-- **Python 3.10+** (for `sdk/python` and plugin test harness)
-
-### Build
+### 1. Install in One Command
 
 ```bash
-cargo build --workspace
+git clone https://github.com/NOCORPS/bughunter.git
+cd bughunter
+cargo install --path crates/bughunter-cli
 ```
 
-### Run CLI Debugging Workflows
+*(Optional)* Install the zero-dependency Python SDK:
 
 ```bash
-# Run an end-to-end investigation with machine-readable JSON output
-cargo run -p bughunter-cli -- investigate --repository . --issue "Fix auth token validation" --verify --json
-
-# Analyze a repository
-cargo run -p bughunter-cli -- analyze --repository . --json
-
-# List all configured model providers and capabilities
-cargo run -p bughunter-cli -- providers --json
-
-# List all supported agent integrations
-cargo run -p bughunter-cli -- integrations --json
+pip install ./sdk/python
 ```
 
-### Start Servers
+### 2. Use Immediately (No External Keys Required)
 
 ```bash
-# 1. Start the unified HTTP server (REST API v1 + MCP Streamable HTTP + A2A)
-BUGHUNTER_API_TOKEN=my-secret-token cargo run -p bughunter-cli -- serve --addr 127.0.0.1:8080
+# Run an end-to-end investigation on the current repo with JSON output
+bughunter investigate --repository . --issue "Fix auth token validation" --verify --json
 
-# 2. Start MCP over stdio (for local coding agents)
-cargo run -p bughunter-cli -- mcp --transport stdio
+# Analyze any repository
+bughunter analyze --repository . --json
 
-# 3. Start standalone MCP Streamable HTTP
-cargo run -p bughunter-cli -- mcp --transport http --addr 127.0.0.1:8081
+# Start the unified server (REST API v1 + MCP HTTP + A2A + OpenAPI)
+bughunter serve --addr 127.0.0.1:8080
+
+# Or start as a local MCP stdio server for Claude Code / OpenCode / OpenClaw
+bughunter mcp --transport stdio
 ```
+
+> Copy [.env.example](.env.example) to `.env` if you want to configure `BUGHUNTER_API_TOKEN` or model provider keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.).
+
+### Using `Makefile` Shortcuts
+
+```bash
+make install   # Install bughunter CLI + Python SDK
+make test      # Run all Rust and Python SDK tests
+make serve     # Start unified HTTP server on 127.0.0.1:8080
+make mcp       # Start MCP stdio server
+```
+
+## Contributing & License
+
+- Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
+- Licensed under the [Apache License 2.0](LICENSE).
 
 ## Documentation
 
