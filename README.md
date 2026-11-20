@@ -80,7 +80,8 @@ bughunter serve --addr 127.0.0.1:8080
 bughunter mcp --transport stdio
 ```
 
-> Copy [.env.example](.env.example) to `.env` if you want to configure `BUGHUNTER_API_TOKEN` or model provider keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.).
+> **No hosted account or API key is required for local use.** Local CLI commands and `bughunter mcp --transport stdio` work out of the box.
+> If you expose `bughunter serve` over the network, generate your own token locally (for example, `export BUGHUNTER_API_TOKEN=$(openssl rand -hex 32)`) and pass `--token "$BUGHUNTER_API_TOKEN"`. Copy [.env.example](.env.example) to `.env` if you also want to configure external LLM provider keys (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, etc.).
 
 ### Using `Makefile` Shortcuts
 
