@@ -1,5 +1,9 @@
 # BugHunter — Universal Debugging Integration Architecture
 
+[![CI](https://github.com/NOCORPS/bughunter/actions/workflows/ci.yml/badge.svg)](https://github.com/NOCORPS/bughunter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+![Visitors](https://komarev.com/ghpvc/?username=NOCORPS-bughunter&label=Visitors&color=0e75b6&style=flat)
+
 BugHunter is an open, extensible, provider-independent, and agent-independent debugging infrastructure written in Rust, with a companion Python SDK and standardized protocol servers.
 
 Every external interface—CLI, Model Context Protocol (MCP), Agent2Agent (A2A), REST API v1, Rust SDK, Python SDK, and Agent Adapters—normalizes incoming requests into a single internal `DebuggingRequest` and executes through `BugHunterCore` under one unified `SecurityPolicy`.
